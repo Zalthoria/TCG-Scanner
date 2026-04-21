@@ -13,166 +13,59 @@
   --bg:#0a0a0c;--surface:#141416;--surface2:#1e1e22;--surface3:#27272d;
   --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
   --text:#f0eff4;--muted:#7a7986;--muted2:#a0a0b0;
-  --gold:#d4a843;--gold2:#f0c866;--gold3:#fff3c4;
-  --info:#4a9eff;--success:#52c97e;--danger:#f06060;--warn:#f0a060;
+  --gold:#d4a843;--gold2:#f0c866;
+  --info:#4a9eff;--success:#52c97e;--danger:#f06060;
 }
 html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;touch-action:manipulation;}
-
-/* ===== SCREENS ===== */
 .screen{position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden;transition:opacity 0.25s,transform 0.25s;}
 .screen.hidden{opacity:0;pointer-events:none;transform:translateY(20px);}
-
-/* ===== COLLECTION SCREEN ===== */
 #collectionScreen{background:var(--bg);}
-.top-bar{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:env(safe-area-inset-top,16px) 20px 16px;
-  padding-top:max(env(safe-area-inset-top),16px);
-  background:var(--bg);z-index:10;
-}
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:max(env(safe-area-inset-top),16px) 20px 16px;background:var(--bg);z-index:10;}
 .app-title{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--gold2);letter-spacing:0.5px;}
-.badge-count{
-  background:var(--gold);color:#000;font-size:11px;font-weight:700;
-  padding:2px 8px;border-radius:20px;letter-spacing:0.5px;
-  font-family:'Rajdhani',sans-serif;
-}
-
+.badge-count{background:var(--gold);color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:0.5px;font-family:'Rajdhani',sans-serif;}
 .collection-scroll{flex:1;overflow-y:auto;padding:0 16px 120px;-webkit-overflow-scrolling:touch;}
-
-.empty-state{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  height:60vh;gap:12px;text-align:center;
-}
-.empty-icon{font-size:56px;opacity:0.4;}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:12px;text-align:center;}
 .empty-title{font-family:'Rajdhani',sans-serif;font-size:22px;color:var(--muted2);}
 .empty-sub{font-size:13px;color:var(--muted);max-width:220px;line-height:1.5;}
-
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-top:8px;}
-.card-item{
-  background:var(--surface);border:0.5px solid var(--border2);border-radius:14px;
-  overflow:hidden;cursor:pointer;transition:transform 0.15s;
-}
+.card-item{background:var(--surface);border:0.5px solid var(--border2);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform 0.15s;}
 .card-item:active{transform:scale(0.96);}
 .card-thumb{width:100%;aspect-ratio:2.5/3.5;object-fit:cover;background:var(--surface2);}
-.card-thumb-placeholder{
-  width:100%;aspect-ratio:2.5/3.5;background:var(--surface2);
-  display:flex;align-items:center;justify-content:center;font-size:32px;opacity:0.4;
-}
+.card-thumb-placeholder{width:100%;aspect-ratio:2.5/3.5;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
 .card-info{padding:10px 10px 12px;}
 .card-item-name{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .card-item-set{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px;}
 .card-item-price{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:600;color:var(--gold);}
-
-/* ===== SCAN FAB ===== */
-.scan-fab{
-  position:fixed;bottom:max(env(safe-area-inset-bottom),24px);left:50%;transform:translateX(-50%);
-  background:var(--gold);color:#000;border:none;cursor:pointer;
-  font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:1px;
-  padding:0 36px;height:56px;border-radius:28px;
-  box-shadow:0 4px 24px rgba(212,168,67,0.4);
-  display:flex;align-items:center;gap:10px;
-  transition:transform 0.15s,box-shadow 0.15s;
-  z-index:100;
-}
-.scan-fab:active{transform:translateX(-50%) scale(0.96);box-shadow:0 2px 12px rgba(212,168,67,0.3);}
-.fab-icon{font-size:22px;}
-
-/* ===== CAMERA SCREEN ===== */
+.scan-fab{position:fixed;bottom:max(env(safe-area-inset-bottom),24px);left:50%;transform:translateX(-50%);background:var(--gold);color:#000;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:1px;padding:0 36px;height:56px;border-radius:28px;box-shadow:0 4px 24px rgba(212,168,67,0.4);display:flex;align-items:center;gap:10px;transition:transform 0.15s;z-index:100;}
+.scan-fab:active{transform:translateX(-50%) scale(0.96);}
 #cameraScreen{background:#000;z-index:50;}
 #videoEl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 #snapCanvas{display:none;}
-
-.cam-header{
-  position:absolute;top:0;left:0;right:0;z-index:10;
-  padding:max(env(safe-area-inset-top),16px) 20px 16px;
-  background:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);
-  display:flex;align-items:center;justify-content:space-between;
-}
-.cam-title{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:0.5px;}
-.close-btn{
-  width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.15);
-  border:none;color:#fff;font-size:20px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  backdrop-filter:blur(4px);
-}
-
-/* Card guide overlay */
-.card-guide{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);
-  width:62%;aspect-ratio:2.5/3.5;z-index:5;pointer-events:none;
-}
-.guide-corner{
-  position:absolute;width:22px;height:22px;
-  border-color:rgba(255,255,255,0.8);border-style:solid;
-}
+.cam-header{position:absolute;top:0;left:0;right:0;z-index:10;padding:max(env(safe-area-inset-top),16px) 20px 16px;background:linear-gradient(to bottom,rgba(0,0,0,0.7),transparent);display:flex;align-items:center;justify-content:space-between;}
+.cam-title{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#fff;}
+.close-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.card-guide{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);width:62%;aspect-ratio:2.5/3.5;z-index:5;pointer-events:none;}
+.guide-corner{position:absolute;width:22px;height:22px;border-color:rgba(255,255,255,0.8);border-style:solid;}
 .guide-corner.tl{top:0;left:0;border-width:3px 0 0 3px;border-radius:4px 0 0 0;}
 .guide-corner.tr{top:0;right:0;border-width:3px 3px 0 0;border-radius:0 4px 0 0;}
 .guide-corner.bl{bottom:0;left:0;border-width:0 0 3px 3px;border-radius:0 0 0 4px;}
 .guide-corner.br{bottom:0;right:0;border-width:0 3px 3px 0;border-radius:0 0 4px 0;}
-
-.cam-footer{
-  position:absolute;bottom:0;left:0;right:0;z-index:10;
-  padding:20px 20px max(env(safe-area-inset-bottom),24px);
-  background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 100%);
-  text-align:center;
-}
-.scan-hint{font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;transition:opacity 0.3s;}
-.manual-btn{
-  background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,0.25);color:#fff;
-  font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;
-  letter-spacing:0.5px;padding:0 32px;height:52px;border-radius:26px;
-  cursor:pointer;transition:background 0.15s;
-}
-.manual-btn:active{background:rgba(255,255,255,0.25);}
-
-/* Scan pulse animation */
-.scanning-ring{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);
-  width:66%;aspect-ratio:2.5/3.5;z-index:6;pointer-events:none;
-  border:2px solid var(--gold);border-radius:8px;
-  opacity:0;
-}
+.scanning-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);width:66%;aspect-ratio:2.5/3.5;z-index:6;pointer-events:none;border:2px solid var(--gold);border-radius:8px;opacity:0;}
 .scanning-ring.active{animation:pulse 1s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:0.2;} 50%{opacity:0.8;}}
-
-/* Scan line */
-.scan-line{
-  position:absolute;left:50%;transform:translateX(-50%);
-  width:60%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  z-index:7;pointer-events:none;opacity:0;
-}
+@keyframes pulse{0%,100%{opacity:0.2;}50%{opacity:0.8;}}
+.scan-line{position:absolute;left:50%;transform:translateX(-50%);width:60%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:7;pointer-events:none;opacity:0;}
 .scan-line.active{animation:scanMove 1.5s ease-in-out infinite,fadeIn 0.3s forwards;}
-@keyframes scanMove{
-  0%{top:calc(50% - 55% * 0.7);}
-  100%{top:calc(50% - 55% * 0.7 + 66vw * 1.4 * 0.6);}
-}
+@keyframes scanMove{0%{top:20%;}100%{top:75%;}}
 @keyframes fadeIn{to{opacity:1;}}
-
-/* ===== RESULT OVERLAY ===== */
-#resultOverlay{
-  position:fixed;inset:0;z-index:200;
-  background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
-  padding:0 0 max(env(safe-area-inset-bottom),16px);
-  opacity:0;pointer-events:none;transition:opacity 0.3s;
-}
+.cam-footer{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:20px 20px max(env(safe-area-inset-bottom),24px);background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);text-align:center;}
+.scan-hint{font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;}
+.manual-btn{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;padding:0 32px;height:52px;border-radius:26px;cursor:pointer;}
+#resultOverlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 0 max(env(safe-area-inset-bottom),16px);opacity:0;pointer-events:none;transition:opacity 0.3s;}
 #resultOverlay.visible{opacity:1;pointer-events:all;}
-.result-sheet{
-  background:var(--surface);border:0.5px solid var(--border2);
-  border-radius:24px 24px 20px 20px;
-  width:100%;max-width:480px;max-height:85vh;overflow-y:auto;
-  padding:20px 20px max(env(safe-area-inset-bottom),16px);
-  animation:slideUp 0.35s cubic-bezier(0.32,0.72,0,1);
-}
-@keyframes slideUp{from{transform:translateY(60px);}to{transform:translateY(0);}}
+.result-sheet{background:var(--surface);border:0.5px solid var(--border2);border-radius:24px 24px 20px 20px;width:100%;max-width:480px;max-height:85vh;overflow-y:auto;padding:20px;}
 .sheet-handle{width:40px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 16px;}
-
 .result-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;}
-.result-img-wrap{
-  flex-shrink:0;width:90px;height:126px;border-radius:10px;overflow:hidden;
-  border:0.5px solid var(--border2);background:var(--surface2);
-}
+.result-img-wrap{flex-shrink:0;width:90px;height:126px;border-radius:10px;overflow:hidden;border:0.5px solid var(--border2);background:var(--surface2);}
 .result-img-wrap img{width:100%;height:100%;object-fit:cover;}
 .result-meta{flex:1;min-width:0;}
 .result-name{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:4px;}
@@ -182,156 +75,82 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .badge.rare{background:rgba(74,158,255,0.15);color:var(--info);border-color:rgba(74,158,255,0.3);}
 .badge.type{background:rgba(82,201,126,0.15);color:var(--success);border-color:rgba(82,201,126,0.3);}
 .badge.holo{background:rgba(212,168,67,0.15);color:var(--gold2);border-color:rgba(212,168,67,0.3);}
-
-.price-row{
-  background:var(--surface2);border-radius:12px;padding:12px 14px;
-  display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;
-}
+.price-row{background:var(--surface2);border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
 .price-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;}
 .price-val{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--gold2);}
-
 .detail-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px;}
 .detail-table td{padding:5px 0;border-bottom:0.5px solid var(--border);}
 .detail-table tr:last-child td{border-bottom:none;}
 .detail-table td:first-child{color:var(--muted);width:38%;}
 .detail-table td:last-child{color:var(--text);font-weight:500;}
-
 .condition-note{font-size:12px;color:var(--muted);line-height:1.5;padding:10px 12px;background:var(--surface2);border-radius:8px;margin-bottom:16px;}
-
 .action-row{display:flex;gap:10px;}
-.btn-save{
-  flex:1;height:50px;border-radius:25px;
-  background:var(--gold);color:#000;border:none;cursor:pointer;
-  font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.5px;
-  transition:opacity 0.15s;
-}
-.btn-save:active{opacity:0.85;}
-.btn-dismiss{
-  height:50px;padding:0 20px;border-radius:25px;
-  background:var(--surface2);color:var(--muted2);
-  border:0.5px solid var(--border2);cursor:pointer;
-  font-family:'Inter',sans-serif;font-size:14px;
-  transition:background 0.15s;
-}
-.btn-dismiss:active{background:var(--surface3);}
-
-/* ===== DETAIL MODAL ===== */
-#detailModal{
-  position:fixed;inset:0;z-index:300;
-  background:rgba(0,0,0,0.9);backdrop-filter:blur(12px);
-  display:flex;align-items:flex-end;justify-content:center;
-  opacity:0;pointer-events:none;transition:opacity 0.3s;
-}
+.btn-save{flex:1;height:50px;border-radius:25px;background:var(--gold);color:#000;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;}
+.btn-dismiss{height:50px;padding:0 20px;border-radius:25px;background:var(--surface2);color:var(--muted2);border:0.5px solid var(--border2);cursor:pointer;font-size:14px;}
+#detailModal{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.9);backdrop-filter:blur(12px);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;}
 #detailModal.visible{opacity:1;pointer-events:all;}
-.detail-sheet{
-  background:var(--surface);border:0.5px solid var(--border2);
-  border-radius:24px 24px 20px 20px;
-  width:100%;max-width:480px;max-height:90vh;overflow-y:auto;
-  padding:20px 20px max(env(safe-area-inset-bottom),24px);
-  animation:slideUp 0.3s cubic-bezier(0.32,0.72,0,1);
-}
-.detail-sheet-img{
-  width:100%;max-height:240px;object-fit:contain;
-  border-radius:12px;margin-bottom:16px;background:var(--surface2);
-}
+.detail-sheet{background:var(--surface);border:0.5px solid var(--border2);border-radius:24px 24px 20px 20px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:20px;position:relative;}
+.detail-sheet-img{width:100%;max-height:240px;object-fit:contain;border-radius:12px;margin-bottom:16px;background:var(--surface2);}
 .detail-big-name{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .detail-price-big{font-family:'Rajdhani',sans-serif;font-size:32px;font-weight:700;color:var(--gold2);margin-bottom:16px;}
 .detail-section-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px;margin-top:14px;}
-.delete-btn{
-  width:100%;margin-top:20px;height:46px;border-radius:23px;
-  background:rgba(240,96,96,0.1);color:var(--danger);
-  border:0.5px solid rgba(240,96,96,0.25);cursor:pointer;
-  font-family:'Inter',sans-serif;font-size:14px;
-  transition:background 0.15s;
-}
-.delete-btn:active{background:rgba(240,96,96,0.2);}
-.close-modal{
-  position:absolute;top:20px;right:20px;
-  width:34px;height:34px;border-radius:50%;
-  background:var(--surface2);border:none;color:var(--muted2);
-  font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
-}
-
-/* ===== LOADING/STATUS ===== */
-.status-pill{
-  position:fixed;top:max(env(safe-area-inset-top),16px);left:50%;transform:translateX(-50%);
-  background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);
-  border:0.5px solid rgba(255,255,255,0.15);border-radius:20px;
-  padding:8px 18px;font-size:13px;color:#fff;
-  z-index:400;white-space:nowrap;
-  opacity:0;transition:opacity 0.3s;pointer-events:none;
-}
+.delete-btn{width:100%;margin-top:20px;height:46px;border-radius:23px;background:rgba(240,96,96,0.1);color:var(--danger);border:0.5px solid rgba(240,96,96,0.25);cursor:pointer;font-size:14px;}
+.close-modal{position:absolute;top:20px;right:20px;width:34px;height:34px;border-radius:50%;background:var(--surface2);border:none;color:var(--muted2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.status-pill{position:fixed;top:max(env(safe-area-inset-top),16px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);border:0.5px solid rgba(255,255,255,0.15);border-radius:20px;padding:8px 18px;font-size:13px;color:#fff;z-index:400;white-space:nowrap;opacity:0;transition:opacity 0.3s;pointer-events:none;}
 .status-pill.visible{opacity:1;}
-
-.disclaimer{font-size:10px;color:var(--muted);text-align:center;padding:8px 20px 0;opacity:0.7;}
+.disclaimer{font-size:10px;color:var(--muted);text-align:center;padding:8px 0 0;opacity:0.7;}
 </style>
 </head>
 <body>
-
-<!-- STATUS PILL -->
 <div class="status-pill" id="statusPill"></div>
-
-<!-- COLLECTION SCREEN -->
 <div class="screen" id="collectionScreen">
   <div class="top-bar">
-    <span class="app-title">ðŸƒ TCG Scanner</span>
+    <span class="app-title">TCG Scanner</span>
     <span class="badge-count" id="cardCount">0 cards</span>
   </div>
-  <div class="collection-scroll" id="collectionScroll">
+  <div class="collection-scroll">
     <div class="empty-state" id="emptyState">
-      <span class="empty-icon">ðŸ“¦</span>
       <p class="empty-title">No cards yet</p>
       <p class="empty-sub">Tap the button below to start scanning your collection</p>
     </div>
     <div class="card-grid" id="cardGrid" style="display:none"></div>
   </div>
   <button class="scan-fab" id="openCameraBtn">
-    <span class="fab-icon">ðŸ“·</span> SCAN CARD
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+    SCAN CARD
   </button>
 </div>
-
-<!-- CAMERA SCREEN -->
 <div class="screen hidden" id="cameraScreen">
   <video id="videoEl" autoplay playsinline muted></video>
   <canvas id="snapCanvas"></canvas>
-
   <div class="cam-header">
     <span class="cam-title">Point at a card</span>
-    <button class="close-btn" id="closeCameraBtn">âœ•</button>
+    <button class="close-btn" id="closeCameraBtn">&#x2715;</button>
   </div>
-
   <div class="card-guide">
-    <div class="guide-corner tl"></div>
-    <div class="guide-corner tr"></div>
-    <div class="guide-corner bl"></div>
-    <div class="guide-corner br"></div>
+    <div class="guide-corner tl"></div><div class="guide-corner tr"></div>
+    <div class="guide-corner bl"></div><div class="guide-corner br"></div>
   </div>
   <div class="scanning-ring" id="scanningRing"></div>
   <div class="scan-line" id="scanLine"></div>
-
   <div class="cam-footer">
-    <p class="scan-hint" id="scanHint">Auto-scan active Â· Align card within the guide</p>
-    <button class="manual-btn" id="manualScanBtn">ðŸ“· Scan Now</button>
+    <p class="scan-hint" id="scanHint">Auto-scan active &mdash; align card within the guide</p>
+    <button class="manual-btn" id="manualScanBtn">Scan Now</button>
   </div>
 </div>
-
-<!-- RESULT OVERLAY -->
 <div id="resultOverlay">
   <div class="result-sheet">
     <div class="sheet-handle"></div>
     <div class="result-top">
       <div class="result-img-wrap"><img id="rImg" src="" alt="Card"/></div>
       <div class="result-meta">
-        <p class="result-name" id="rName">â€”</p>
-        <p class="result-set" id="rSet">â€”</p>
+        <p class="result-name" id="rName"></p>
+        <p class="result-set" id="rSet"></p>
         <div class="badges" id="rBadges"></div>
       </div>
     </div>
     <div class="price-row">
-      <div>
-        <p class="price-label">Est. Market Value</p>
-        <p class="price-val" id="rPrice">â€”</p>
-      </div>
+      <div><p class="price-label">Est. Market Value</p><p class="price-val" id="rPrice"></p></div>
       <div style="text-align:right;font-size:11px;color:var(--muted)">Near Mint<br>USD</div>
     </div>
     <table class="detail-table" id="rTable"></table>
@@ -340,18 +159,16 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <button class="btn-save" id="saveCardBtn">+ Add to Collection</button>
       <button class="btn-dismiss" id="dismissResultBtn">Skip</button>
     </div>
-    <p class="disclaimer">Prices are AI estimates Â· verify on TCGPlayer or Cardmarket</p>
+    <p class="disclaimer">Prices are AI estimates. Verify on TCGPlayer or Cardmarket.</p>
   </div>
 </div>
-
-<!-- DETAIL MODAL -->
 <div id="detailModal">
-  <div class="detail-sheet" style="position:relative">
-    <button class="close-modal" id="closeDetailBtn">âœ•</button>
+  <div class="detail-sheet">
+    <button class="close-modal" id="closeDetailBtn">&#x2715;</button>
     <div class="sheet-handle"></div>
     <img class="detail-sheet-img" id="dImg" src="" alt="Card"/>
-    <p class="detail-big-name" id="dName">â€”</p>
-    <p class="detail-price-big" id="dPrice">â€”</p>
+    <p class="detail-big-name" id="dName"></p>
+    <p class="detail-price-big" id="dPrice"></p>
     <div class="badges" id="dBadges" style="margin-bottom:10px;"></div>
     <p class="detail-section-label">Details</p>
     <table class="detail-table" id="dTable"></table>
@@ -362,342 +179,127 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <button class="delete-btn" id="deleteCardBtn">Remove from Collection</button>
   </div>
 </div>
-
 <script>
-// ===== STATE =====
-let collection = JSON.parse(localStorage.getItem('tcgCollection') || '[]');
-let stream = null;
-let autoScanTimer = null;
-let isScanning = false;
-let lastScanTime = 0;
-let pendingCard = null;
-let currentDetailId = null;
-const AUTO_SCAN_INTERVAL = 5000; // 5 seconds between auto scans
-
-// ===== SAVE/LOAD =====
-function saveCollection() {
-  localStorage.setItem('tcgCollection', JSON.stringify(collection));
+var collection=JSON.parse(localStorage.getItem('tcgCollection')||'[]');
+var stream=null,autoScanTimer=null,isScanning=false,lastScanTime=0,pendingCard=null,currentDetailId=null;
+var AUTO_SCAN_INTERVAL=5000,pillTimer=null;
+function saveCollection(){localStorage.setItem('tcgCollection',JSON.stringify(collection));}
+function showStatus(msg,dur){var p=document.getElementById('statusPill');p.textContent=msg;p.classList.add('visible');clearTimeout(pillTimer);pillTimer=setTimeout(function(){p.classList.remove('visible');},dur||2500);}
+function renderCollection(){
+  var grid=document.getElementById('cardGrid'),empty=document.getElementById('emptyState'),count=document.getElementById('cardCount');
+  count.textContent=collection.length+' card'+(collection.length!==1?'s':'');
+  if(collection.length===0){empty.style.display='flex';grid.style.display='none';return;}
+  empty.style.display='none';grid.style.display='grid';
+  grid.innerHTML=collection.slice().reverse().map(function(c){
+    return '<div class="card-item" onclick="openDetail(\''+c.id+'\')">'+(c.imageData?'<img class="card-thumb" src="'+c.imageData+'" loading="lazy"/>':'<div class="card-thumb-placeholder">No Image</div>')+'<div class="card-info"><p class="card-item-name">'+(c.fullName||c.name)+'</p><p class="card-item-set">'+(c.set||'Unknown')+'</p><p class="card-item-price">'+(c.priceDisplay||'-')+'</p></div></div>';
+  }).join('');
 }
-
-// ===== STATUS PILL =====
-let pillTimer = null;
-function showStatus(msg, duration=2500) {
-  const pill = document.getElementById('statusPill');
-  pill.textContent = msg;
-  pill.classList.add('visible');
-  clearTimeout(pillTimer);
-  pillTimer = setTimeout(() => pill.classList.remove('visible'), duration);
+function buildBadges(c){
+  var h='';
+  if(c.rarity)h+='<span class="badge rare">'+c.rarity+'</span>';
+  if(c.type)h+='<span class="badge type">'+c.type+'</span>';
+  if(c.isHolo)h+='<span class="badge holo">Holo</span>';
+  if(c.game&&c.game!=='Pokemon TCG')h+='<span class="badge">'+c.game+'</span>';
+  return h;
 }
-
-// ===== COLLECTION RENDER =====
-function renderCollection() {
-  const grid = document.getElementById('cardGrid');
-  const empty = document.getElementById('emptyState');
-  const count = document.getElementById('cardCount');
-  count.textContent = `${collection.length} card${collection.length !== 1 ? 's' : ''}`;
-
-  if (collection.length === 0) {
-    empty.style.display = 'flex';
-    grid.style.display = 'none';
-    return;
-  }
-  empty.style.display = 'none';
-  grid.style.display = 'grid';
-  grid.innerHTML = collection.slice().reverse().map(card => `
-    <div class="card-item" onclick="openDetail('${card.id}')">
-      ${card.imageData
-        ? `<img class="card-thumb" src="${card.imageData}" alt="${card.name}" loading="lazy"/>`
-        : `<div class="card-thumb-placeholder">ðŸƒ</div>`}
-      <div class="card-info">
-        <p class="card-item-name">${card.fullName || card.name}</p>
-        <p class="card-item-set">${card.set || 'Unknown set'}</p>
-        <p class="card-item-price">${card.priceDisplay || 'â€”'}</p>
-      </div>
-    </div>
-  `).join('');
+function buildRows(c){
+  return[['Card no.',c.cardNumber],['Set',c.set],['Game',c.game],['Year',c.year]].filter(function(r){return r[1];}).map(function(r){return'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('');
 }
-
-// ===== DETAIL MODAL =====
-function openDetail(id) {
-  const card = collection.find(c => c.id === id);
-  if (!card) return;
-  currentDetailId = id;
-
-  document.getElementById('dImg').src = card.imageData || '';
-  document.getElementById('dImg').style.display = card.imageData ? 'block' : 'none';
-  document.getElementById('dName').textContent = card.fullName || card.name;
-  document.getElementById('dPrice').textContent = card.priceDisplay || 'Price unknown';
-
-  const badges = document.getElementById('dBadges');
-  badges.innerHTML = buildBadges(card);
-
-  const table = document.getElementById('dTable');
-  table.innerHTML = buildDetailRows(card);
-
-  if (card.conditionNotes) {
-    document.getElementById('dCondLabel').style.display = 'block';
-    document.getElementById('dCond').textContent = card.conditionNotes;
-  } else {
-    document.getElementById('dCondLabel').style.display = 'none';
-  }
-
-  document.getElementById('dDate').textContent = new Date(card.addedAt).toLocaleString();
+function openDetail(id){
+  var c=collection.find(function(x){return x.id===id;});if(!c)return;
+  currentDetailId=id;
+  var di=document.getElementById('dImg');di.src=c.imageData||'';di.style.display=c.imageData?'block':'none';
+  document.getElementById('dName').textContent=c.fullName||c.name;
+  document.getElementById('dPrice').textContent=c.priceDisplay||'Price unknown';
+  document.getElementById('dBadges').innerHTML=buildBadges(c);
+  document.getElementById('dTable').innerHTML=buildRows(c);
+  if(c.conditionNotes){document.getElementById('dCondLabel').style.display='block';document.getElementById('dCond').textContent=c.conditionNotes;}
+  else{document.getElementById('dCondLabel').style.display='none';}
+  document.getElementById('dDate').textContent=new Date(c.addedAt).toLocaleString();
   document.getElementById('detailModal').classList.add('visible');
 }
-
-document.getElementById('closeDetailBtn').onclick = () => {
-  document.getElementById('detailModal').classList.remove('visible');
+document.getElementById('closeDetailBtn').onclick=function(){document.getElementById('detailModal').classList.remove('visible');};
+document.getElementById('deleteCardBtn').onclick=function(){
+  if(!currentDetailId||!confirm('Remove this card?'))return;
+  collection=collection.filter(function(c){return c.id!==currentDetailId;});
+  saveCollection();renderCollection();document.getElementById('detailModal').classList.remove('visible');showStatus('Card removed');
 };
-document.getElementById('deleteCardBtn').onclick = () => {
-  if (!currentDetailId) return;
-  if (!confirm('Remove this card from your collection?')) return;
-  collection = collection.filter(c => c.id !== currentDetailId);
-  saveCollection();
-  renderCollection();
-  document.getElementById('detailModal').classList.remove('visible');
-  showStatus('Card removed');
-};
-document.getElementById('detailModal').onclick = e => {
-  if (e.target === document.getElementById('detailModal'))
-    document.getElementById('detailModal').classList.remove('visible');
-};
-
-// ===== CAMERA =====
-document.getElementById('openCameraBtn').onclick = openCamera;
-document.getElementById('closeCameraBtn').onclick = closeCamera;
-
-async function openCamera() {
+document.getElementById('detailModal').onclick=function(e){if(e.target===document.getElementById('detailModal'))document.getElementById('detailModal').classList.remove('visible');};
+document.getElementById('openCameraBtn').onclick=openCamera;
+document.getElementById('closeCameraBtn').onclick=closeCamera;
+async function openCamera(){
   showScreen('cameraScreen');
-  try {
-    stream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 } },
-      audio: false
-    });
-    document.getElementById('videoEl').srcObject = stream;
-    startAutoScan();
-  } catch(e) {
-    showStatus('âš  Camera access denied');
-    showScreen('collectionScreen');
-  }
+  try{
+    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false});
+    document.getElementById('videoEl').srcObject=stream;startAutoScan();
+  }catch(e){showStatus('Camera access denied');showScreen('collectionScreen');}
 }
-
-function closeCamera() {
+function closeCamera(){
   stopAutoScan();
-  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
-  document.getElementById('videoEl').srcObject = null;
-  showScreen('collectionScreen');
+  if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
+  document.getElementById('videoEl').srcObject=null;showScreen('collectionScreen');
 }
-
-// ===== AUTO SCAN =====
-function startAutoScan() {
-  stopAutoScan();
-  setScanAnimating(true);
-  autoScanTimer = setInterval(() => {
-    if (!isScanning && Date.now() - lastScanTime > AUTO_SCAN_INTERVAL) {
-      captureAndIdentify();
+function startAutoScan(){
+  stopAutoScan();setScanAnimating(true);
+  autoScanTimer=setInterval(function(){if(!isScanning&&Date.now()-lastScanTime>AUTO_SCAN_INTERVAL)captureAndIdentify();},AUTO_SCAN_INTERVAL);
+}
+function stopAutoScan(){clearInterval(autoScanTimer);setScanAnimating(false);}
+function setScanAnimating(on){document.getElementById('scanningRing').classList.toggle('active',on);document.getElementById('scanLine').classList.toggle('active',on);}
+document.getElementById('manualScanBtn').onclick=function(){if(!isScanning)captureAndIdentify(true);};
+async function captureAndIdentify(manual){
+  if(isScanning)return;
+  var video=document.getElementById('videoEl');if(!video.videoWidth)return;
+  isScanning=true;lastScanTime=Date.now();setScanAnimating(false);
+  document.getElementById('scanHint').textContent='Scanning...';
+  document.getElementById('manualScanBtn').disabled=true;
+  var canvas=document.getElementById('snapCanvas');
+  canvas.width=video.videoWidth;canvas.height=video.videoHeight;
+  canvas.getContext('2d').drawImage(video,0,0);
+  var imageData=canvas.toDataURL('image/jpeg',0.85),base64=imageData.split(',')[1];
+  try{
+    var prompt='You are a TCG card expert. Is there a clearly visible TCG card in this image?\n\nIf YES return ONLY JSON (no markdown):\n{"found":true,"name":"Card name","fullName":"Full name","set":"Set name","setCode":null,"cardNumber":null,"rarity":"Rarity","type":"Energy type","game":"Game name","estimatedPriceLow":0,"estimatedPriceHigh":0,"conditionNotes":"Condition","isHolo":false,"year":null}\n\nIf NO return ONLY: {"found":false}';
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:'image/jpeg',data:base64}},{type:'text',text:prompt}]}]})});
+    var data=await resp.json();
+    if(data.error)throw new Error(data.error.message);
+    var text=data.content.map(function(b){return b.text||'';}).join('');
+    var card=JSON.parse(text.replace(/```json|```/g,'').trim());
+    if(card.found){
+      pendingCard=Object.assign({},card,{imageData:imageData,capturedAt:Date.now()});
+      showResultOverlay(pendingCard);stopAutoScan();
+    }else{
+      document.getElementById('scanHint').textContent='No card detected - keep trying';setScanAnimating(true);
     }
-  }, AUTO_SCAN_INTERVAL);
-}
-
-function stopAutoScan() {
-  clearInterval(autoScanTimer);
-  setScanAnimating(false);
-}
-
-function setScanAnimating(on) {
-  document.getElementById('scanningRing').classList.toggle('active', on);
-  document.getElementById('scanLine').classList.toggle('active', on);
-}
-
-document.getElementById('manualScanBtn').onclick = () => {
-  if (!isScanning) captureAndIdentify(true);
-};
-
-async function captureAndIdentify(manual=false) {
-  if (isScanning) return;
-  const video = document.getElementById('videoEl');
-  if (!video.videoWidth) return;
-
-  isScanning = true;
-  lastScanTime = Date.now();
-  setScanAnimating(false);
-  document.getElementById('scanHint').textContent = 'Scanning...';
-  document.getElementById('manualScanBtn').disabled = true;
-
-  const canvas = document.getElementById('snapCanvas');
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  const ctx = canvas.getContext('2d');
-  ctx.drawImage(video, 0, 0);
-  const imageData = canvas.toDataURL('image/jpeg', 0.85);
-  const base64 = imageData.split(',')[1];
-
-  try {
-    const prompt = `You are a TCG card expert. Look at this image carefully.
-
-First determine: Is there a clearly visible TCG card (PokÃ©mon, Magic: The Gathering, Yu-Gi-Oh, Digimon, or similar) in this image that is readable enough to identify?
-
-If YES, return ONLY this JSON (no markdown, no backticks):
-{
-  "found": true,
-  "name": "Card name",
-  "fullName": "Full name with suffix if any",
-  "set": "Set/expansion name",
-  "setCode": "Set code or null",
-  "cardNumber": "Card number or null",
-  "rarity": "Rarity",
-  "type": "Energy/colour type",
-  "game": "TCG game name",
-  "estimatedPriceLow": <number or null>,
-  "estimatedPriceHigh": <number or null>,
-  "conditionNotes": "Brief visible condition notes",
-  "isHolo": <true or false>,
-  "year": "Year or null"
-}
-
-If NO clear card visible, return ONLY: {"found": false}`;
-
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 800,
-        messages: [{
-          role: 'user',
-          content: [
-            { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: base64 } },
-            { type: 'text', text: prompt }
-          ]
-        }]
-      })
-    });
-
-    const data = await resp.json();
-    if (data.error) throw new Error(data.error.message);
-    const text = data.content.map(b => b.text||'').join('');
-    const card = JSON.parse(text.replace(/```json|```/g,'').trim());
-
-    if (card.found) {
-      pendingCard = { ...card, imageData, capturedAt: Date.now() };
-      showResultOverlay(pendingCard);
-      stopAutoScan();
-    } else {
-      document.getElementById('scanHint').textContent = 'No card detected Â· keep trying';
-      setScanAnimating(true);
-    }
-  } catch(e) {
-    document.getElementById('scanHint').textContent = 'Scan failed Â· try again';
-    if (manual) showStatus('âš  Could not identify Â· try a clearer photo');
+  }catch(e){
+    document.getElementById('scanHint').textContent='Scan failed - try again';
+    if(manual)showStatus('Could not identify - try a clearer photo');
     setScanAnimating(true);
   }
-
-  isScanning = false;
-  document.getElementById('manualScanBtn').disabled = false;
+  isScanning=false;document.getElementById('manualScanBtn').disabled=false;
 }
-
-// ===== RESULT OVERLAY =====
-function buildBadges(card) {
-  let html = '';
-  if (card.rarity) html += `<span class="badge rare">${card.rarity}</span>`;
-  if (card.type) html += `<span class="badge type">${card.type}</span>`;
-  if (card.isHolo) html += `<span class="badge holo">Holo</span>`;
-  if (card.game && card.game !== 'PokÃ©mon TCG') html += `<span class="badge">${card.game}</span>`;
-  return html;
-}
-
-function buildDetailRows(card) {
-  const rows = [
-    ['Card no.', card.cardNumber],
-    ['Set', card.set],
-    ['Game', card.game],
-    ['Year', card.year],
-  ];
-  return rows.filter(([,v])=>v).map(([l,v])=>`<tr><td>${l}</td><td>${v}</td></tr>`).join('');
-}
-
-function showResultOverlay(card) {
-  document.getElementById('rImg').src = card.imageData || '';
-  document.getElementById('rName').textContent = card.fullName || card.name || 'Unknown';
-  document.getElementById('rSet').textContent = [card.set, card.setCode ? `(${card.setCode})` : '', card.year ? `Â· ${card.year}` : ''].filter(Boolean).join(' ') || 'Unknown set';
-  document.getElementById('rBadges').innerHTML = buildBadges(card);
-
-  if (card.estimatedPriceLow != null && card.estimatedPriceHigh != null) {
-    const lo = parseFloat(card.estimatedPriceLow), hi = parseFloat(card.estimatedPriceHigh);
-    document.getElementById('rPrice').textContent = `$${lo.toFixed(2)} â€“ $${hi.toFixed(2)}`;
-  } else {
-    document.getElementById('rPrice').textContent = 'N/A';
-  }
-
-  document.getElementById('rTable').innerHTML = buildDetailRows(card);
-
-  const condEl = document.getElementById('rCondition');
-  if (card.conditionNotes) { condEl.textContent = card.conditionNotes; condEl.style.display = 'block'; }
-  else condEl.style.display = 'none';
-
+function showResultOverlay(c){
+  document.getElementById('rImg').src=c.imageData||'';
+  document.getElementById('rName').textContent=c.fullName||c.name||'Unknown';
+  document.getElementById('rSet').textContent=[c.set,c.setCode?'('+c.setCode+')':'',c.year?'- '+c.year:''].filter(Boolean).join(' ')||'Unknown set';
+  document.getElementById('rBadges').innerHTML=buildBadges(c);
+  document.getElementById('rPrice').textContent=(c.estimatedPriceLow!=null&&c.estimatedPriceHigh!=null)?'$'+parseFloat(c.estimatedPriceLow).toFixed(2)+' - $'+parseFloat(c.estimatedPriceHigh).toFixed(2):'N/A';
+  document.getElementById('rTable').innerHTML=buildRows(c);
+  var ce=document.getElementById('rCondition');
+  if(c.conditionNotes){ce.textContent=c.conditionNotes;ce.style.display='block';}else{ce.style.display='none';}
   document.getElementById('resultOverlay').classList.add('visible');
 }
-
-function hideResultOverlay() {
-  document.getElementById('resultOverlay').classList.remove('visible');
-  pendingCard = null;
-}
-
-document.getElementById('dismissResultBtn').onclick = () => {
-  hideResultOverlay();
-  document.getElementById('scanHint').textContent = 'Auto-scan active Â· Align card within the guide';
-  startAutoScan();
+function hideResultOverlay(){document.getElementById('resultOverlay').classList.remove('visible');pendingCard=null;}
+document.getElementById('dismissResultBtn').onclick=function(){hideResultOverlay();document.getElementById('scanHint').textContent='Auto-scan active - align card within the guide';startAutoScan();};
+document.getElementById('saveCardBtn').onclick=function(){
+  if(!pendingCard)return;
+  var lo=pendingCard.estimatedPriceLow!=null?parseFloat(pendingCard.estimatedPriceLow):null;
+  var hi=pendingCard.estimatedPriceHigh!=null?parseFloat(pendingCard.estimatedPriceHigh):null;
+  var c={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),name:pendingCard.name,fullName:pendingCard.fullName||pendingCard.name,set:pendingCard.set,setCode:pendingCard.setCode,cardNumber:pendingCard.cardNumber,rarity:pendingCard.rarity,type:pendingCard.type,game:pendingCard.game,isHolo:pendingCard.isHolo,year:pendingCard.year,conditionNotes:pendingCard.conditionNotes,priceLow:lo,priceHigh:hi,priceDisplay:lo!=null&&hi!=null?'$'+lo.toFixed(2)+' - $'+hi.toFixed(2):'N/A',imageData:pendingCard.imageData,addedAt:Date.now()};
+  collection.push(c);saveCollection();renderCollection();hideResultOverlay();
+  showStatus('"'+(c.fullName||c.name)+'" added!');
+  document.getElementById('scanHint').textContent='Auto-scan active - align card within the guide';startAutoScan();
 };
-
-document.getElementById('saveCardBtn').onclick = () => {
-  if (!pendingCard) return;
-  const lo = pendingCard.estimatedPriceLow != null ? parseFloat(pendingCard.estimatedPriceLow) : null;
-  const hi = pendingCard.estimatedPriceHigh != null ? parseFloat(pendingCard.estimatedPriceHigh) : null;
-
-  const card = {
-    id: Date.now().toString(36) + Math.random().toString(36).slice(2,7),
-    name: pendingCard.name,
-    fullName: pendingCard.fullName || pendingCard.name,
-    set: pendingCard.set,
-    setCode: pendingCard.setCode,
-    cardNumber: pendingCard.cardNumber,
-    rarity: pendingCard.rarity,
-    type: pendingCard.type,
-    game: pendingCard.game,
-    isHolo: pendingCard.isHolo,
-    year: pendingCard.year,
-    conditionNotes: pendingCard.conditionNotes,
-    priceLow: lo,
-    priceHigh: hi,
-    priceDisplay: lo != null && hi != null ? `$${lo.toFixed(2)} â€“ $${hi.toFixed(2)}` : 'N/A',
-    imageData: pendingCard.imageData,
-    addedAt: Date.now()
-  };
-
-  collection.push(card);
-  saveCollection();
-  renderCollection();
-  hideResultOverlay();
-  showStatus(`âœ“ "${card.fullName || card.name}" added!`);
-  document.getElementById('scanHint').textContent = 'Auto-scan active Â· Align card within the guide';
-  startAutoScan();
-};
-
-document.getElementById('resultOverlay').onclick = e => {
-  if (e.target === document.getElementById('resultOverlay')) {
-    hideResultOverlay();
-    startAutoScan();
-  }
-};
-
-// ===== SCREEN TRANSITIONS =====
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => {
-    s.classList.toggle('hidden', s.id !== id);
-  });
-}
-
-// ===== INIT =====
+document.getElementById('resultOverlay').onclick=function(e){if(e.target===document.getElementById('resultOverlay')){hideResultOverlay();startAutoScan();}};
+function showScreen(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.toggle('hidden',s.id!==id);});}
 renderCollection();
 </script>
 </body>
