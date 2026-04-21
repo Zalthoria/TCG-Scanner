@@ -19,10 +19,26 @@
 html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;touch-action:manipulation;}
 .screen{position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden;transition:opacity 0.25s,transform 0.25s;}
 .screen.hidden{opacity:0;pointer-events:none;transform:translateY(20px);}
+
+/* API KEY SCREEN */
+#apiKeyScreen{background:var(--bg);align-items:center;justify-content:center;padding:32px 24px;}
+.key-card{background:var(--surface);border:0.5px solid var(--border2);border-radius:20px;padding:28px 24px;width:100%;max-width:400px;}
+.key-title{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--gold2);margin-bottom:6px;}
+.key-sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px;}
+.key-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;}
+.key-input{width:100%;background:var(--surface2);border:0.5px solid var(--border2);border-radius:10px;padding:12px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;outline:none;margin-bottom:14px;}
+.key-input:focus{border-color:var(--gold);}
+.key-btn{width:100%;height:48px;border-radius:24px;background:var(--gold);color:#000;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.5px;}
+.key-note{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5;text-align:center;}
+.key-note a{color:var(--muted2);}
+
+/* COLLECTION */
 #collectionScreen{background:var(--bg);}
 .top-bar{display:flex;align-items:center;justify-content:space-between;padding:max(env(safe-area-inset-top),16px) 20px 16px;background:var(--bg);z-index:10;}
 .app-title{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--gold2);letter-spacing:0.5px;}
-.badge-count{background:var(--gold);color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:0.5px;font-family:'Rajdhani',sans-serif;}
+.top-right{display:flex;align-items:center;gap:10px;}
+.badge-count{background:var(--gold);color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;font-family:'Rajdhani',sans-serif;}
+.key-change-btn{font-size:11px;color:var(--muted);background:none;border:none;cursor:pointer;padding:4px 8px;text-decoration:underline;}
 .collection-scroll{flex:1;overflow-y:auto;padding:0 16px 120px;-webkit-overflow-scrolling:touch;}
 .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:12px;text-align:center;}
 .empty-title{font-family:'Rajdhani',sans-serif;font-size:22px;color:var(--muted2);}
@@ -38,6 +54,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .card-item-price{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:600;color:var(--gold);}
 .scan-fab{position:fixed;bottom:max(env(safe-area-inset-bottom),24px);left:50%;transform:translateX(-50%);background:var(--gold);color:#000;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:1px;padding:0 36px;height:56px;border-radius:28px;box-shadow:0 4px 24px rgba(212,168,67,0.4);display:flex;align-items:center;gap:10px;transition:transform 0.15s;z-index:100;}
 .scan-fab:active{transform:translateX(-50%) scale(0.96);}
+
+/* CAMERA */
 #cameraScreen{background:#000;z-index:50;}
 #videoEl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 #snapCanvas{display:none;}
@@ -60,6 +78,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .cam-footer{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:20px 20px max(env(safe-area-inset-bottom),24px);background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);text-align:center;}
 .scan-hint{font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;}
 .manual-btn{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;padding:0 32px;height:52px;border-radius:26px;cursor:pointer;}
+
+/* RESULT */
 #resultOverlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 0 max(env(safe-area-inset-bottom),16px);opacity:0;pointer-events:none;transition:opacity 0.3s;}
 #resultOverlay.visible{opacity:1;pointer-events:all;}
 .result-sheet{background:var(--surface);border:0.5px solid var(--border2);border-radius:24px 24px 20px 20px;width:100%;max-width:480px;max-height:85vh;overflow-y:auto;padding:20px;}
@@ -87,6 +107,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .action-row{display:flex;gap:10px;}
 .btn-save{flex:1;height:50px;border-radius:25px;background:var(--gold);color:#000;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;}
 .btn-dismiss{height:50px;padding:0 20px;border-radius:25px;background:var(--surface2);color:var(--muted2);border:0.5px solid var(--border2);cursor:pointer;font-size:14px;}
+
+/* DETAIL */
 #detailModal{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.9);backdrop-filter:blur(12px);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;}
 #detailModal.visible{opacity:1;pointer-events:all;}
 .detail-sheet{background:var(--surface);border:0.5px solid var(--border2);border-radius:24px 24px 20px 20px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:20px;position:relative;}
@@ -96,17 +118,37 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .detail-section-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px;margin-top:14px;}
 .delete-btn{width:100%;margin-top:20px;height:46px;border-radius:23px;background:rgba(240,96,96,0.1);color:var(--danger);border:0.5px solid rgba(240,96,96,0.25);cursor:pointer;font-size:14px;}
 .close-modal{position:absolute;top:20px;right:20px;width:34px;height:34px;border-radius:50%;background:var(--surface2);border:none;color:var(--muted2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-.status-pill{position:fixed;top:max(env(safe-area-inset-top),16px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);border:0.5px solid rgba(255,255,255,0.15);border-radius:20px;padding:8px 18px;font-size:13px;color:#fff;z-index:400;white-space:nowrap;opacity:0;transition:opacity 0.3s;pointer-events:none;}
+
+/* STATUS */
+.status-pill{position:fixed;top:max(env(safe-area-inset-top),16px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border:0.5px solid rgba(255,255,255,0.15);border-radius:20px;padding:8px 18px;font-size:13px;color:#fff;z-index:400;white-space:nowrap;opacity:0;transition:opacity 0.3s;pointer-events:none;}
 .status-pill.visible{opacity:1;}
 .disclaimer{font-size:10px;color:var(--muted);text-align:center;padding:8px 0 0;opacity:0.7;}
 </style>
 </head>
 <body>
+
 <div class="status-pill" id="statusPill"></div>
-<div class="screen" id="collectionScreen">
+
+<!-- API KEY SCREEN -->
+<div class="screen" id="apiKeyScreen">
+  <div class="key-card">
+    <p class="key-title">TCG Scanner</p>
+    <p class="key-sub">Enter your Anthropic API key to power card identification. It is saved locally on your device and never sent anywhere except the Anthropic API.</p>
+    <p class="key-label">Anthropic API Key</p>
+    <input class="key-input" id="keyInput" type="password" placeholder="sk-ant-..." autocomplete="off" autocorrect="off" spellcheck="false"/>
+    <button class="key-btn" id="saveKeyBtn">Get Started</button>
+    <p class="key-note">Get a key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a><br>Your key is stored in localStorage only.</p>
+  </div>
+</div>
+
+<!-- COLLECTION -->
+<div class="screen hidden" id="collectionScreen">
   <div class="top-bar">
     <span class="app-title">TCG Scanner</span>
-    <span class="badge-count" id="cardCount">0 cards</span>
+    <div class="top-right">
+      <span class="badge-count" id="cardCount">0 cards</span>
+      <button class="key-change-btn" id="changeKeyBtn">API Key</button>
+    </div>
   </div>
   <div class="collection-scroll">
     <div class="empty-state" id="emptyState">
@@ -120,6 +162,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     SCAN CARD
   </button>
 </div>
+
+<!-- CAMERA -->
 <div class="screen hidden" id="cameraScreen">
   <video id="videoEl" autoplay playsinline muted></video>
   <canvas id="snapCanvas"></canvas>
@@ -138,6 +182,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <button class="manual-btn" id="manualScanBtn">Scan Now</button>
   </div>
 </div>
+
+<!-- RESULT -->
 <div id="resultOverlay">
   <div class="result-sheet">
     <div class="sheet-handle"></div>
@@ -162,6 +208,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <p class="disclaimer">Prices are AI estimates. Verify on TCGPlayer or Cardmarket.</p>
   </div>
 </div>
+
+<!-- DETAIL -->
 <div id="detailModal">
   <div class="detail-sheet">
     <button class="close-modal" id="closeDetailBtn">&#x2715;</button>
@@ -179,12 +227,33 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <button class="delete-btn" id="deleteCardBtn">Remove from Collection</button>
   </div>
 </div>
+
 <script>
 var collection=JSON.parse(localStorage.getItem('tcgCollection')||'[]');
 var stream=null,autoScanTimer=null,isScanning=false,lastScanTime=0,pendingCard=null,currentDetailId=null;
 var AUTO_SCAN_INTERVAL=5000,pillTimer=null;
-function saveCollection(){localStorage.setItem('tcgCollection',JSON.stringify(collection));}
+
+function getKey(){return localStorage.getItem('tcgApiKey')||'';}
+function saveKey(k){localStorage.setItem('tcgApiKey',k);}
+
+// INIT
+function init(){
+  if(getKey()){showScreen('collectionScreen');renderCollection();}
+  else{showScreen('apiKeyScreen');}
+}
+
+document.getElementById('saveKeyBtn').onclick=function(){
+  var k=document.getElementById('keyInput').value.trim();
+  if(!k.startsWith('sk-')){showStatus('Key must start with sk-');return;}
+  saveKey(k);showScreen('collectionScreen');renderCollection();
+};
+document.getElementById('keyInput').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('saveKeyBtn').click();});
+document.getElementById('changeKeyBtn').onclick=function(){
+  document.getElementById('keyInput').value=getKey();showScreen('apiKeyScreen');
+};
+
 function showStatus(msg,dur){var p=document.getElementById('statusPill');p.textContent=msg;p.classList.add('visible');clearTimeout(pillTimer);pillTimer=setTimeout(function(){p.classList.remove('visible');},dur||2500);}
+
 function renderCollection(){
   var grid=document.getElementById('cardGrid'),empty=document.getElementById('emptyState'),count=document.getElementById('cardCount');
   count.textContent=collection.length+' card'+(collection.length!==1?'s':'');
@@ -194,6 +263,7 @@ function renderCollection(){
     return '<div class="card-item" onclick="openDetail(\''+c.id+'\')">'+(c.imageData?'<img class="card-thumb" src="'+c.imageData+'" loading="lazy"/>':'<div class="card-thumb-placeholder">No Image</div>')+'<div class="card-info"><p class="card-item-name">'+(c.fullName||c.name)+'</p><p class="card-item-set">'+(c.set||'Unknown')+'</p><p class="card-item-price">'+(c.priceDisplay||'-')+'</p></div></div>';
   }).join('');
 }
+
 function buildBadges(c){
   var h='';
   if(c.rarity)h+='<span class="badge rare">'+c.rarity+'</span>';
@@ -205,6 +275,7 @@ function buildBadges(c){
 function buildRows(c){
   return[['Card no.',c.cardNumber],['Set',c.set],['Game',c.game],['Year',c.year]].filter(function(r){return r[1];}).map(function(r){return'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('');
 }
+
 function openDetail(id){
   var c=collection.find(function(x){return x.id===id;});if(!c)return;
   currentDetailId=id;
@@ -222,11 +293,14 @@ document.getElementById('closeDetailBtn').onclick=function(){document.getElement
 document.getElementById('deleteCardBtn').onclick=function(){
   if(!currentDetailId||!confirm('Remove this card?'))return;
   collection=collection.filter(function(c){return c.id!==currentDetailId;});
-  saveCollection();renderCollection();document.getElementById('detailModal').classList.remove('visible');showStatus('Card removed');
+  localStorage.setItem('tcgCollection',JSON.stringify(collection));
+  renderCollection();document.getElementById('detailModal').classList.remove('visible');showStatus('Card removed');
 };
 document.getElementById('detailModal').onclick=function(e){if(e.target===document.getElementById('detailModal'))document.getElementById('detailModal').classList.remove('visible');};
+
 document.getElementById('openCameraBtn').onclick=openCamera;
 document.getElementById('closeCameraBtn').onclick=closeCamera;
+
 async function openCamera(){
   showScreen('cameraScreen');
   try{
@@ -246,6 +320,7 @@ function startAutoScan(){
 function stopAutoScan(){clearInterval(autoScanTimer);setScanAnimating(false);}
 function setScanAnimating(on){document.getElementById('scanningRing').classList.toggle('active',on);document.getElementById('scanLine').classList.toggle('active',on);}
 document.getElementById('manualScanBtn').onclick=function(){if(!isScanning)captureAndIdentify(true);};
+
 async function captureAndIdentify(manual){
   if(isScanning)return;
   var video=document.getElementById('videoEl');if(!video.videoWidth)return;
@@ -258,7 +333,11 @@ async function captureAndIdentify(manual){
   var imageData=canvas.toDataURL('image/jpeg',0.85),base64=imageData.split(',')[1];
   try{
     var prompt='You are a TCG card expert. Is there a clearly visible TCG card in this image?\n\nIf YES return ONLY JSON (no markdown):\n{"found":true,"name":"Card name","fullName":"Full name","set":"Set name","setCode":null,"cardNumber":null,"rarity":"Rarity","type":"Energy type","game":"Game name","estimatedPriceLow":0,"estimatedPriceHigh":0,"conditionNotes":"Condition","isHolo":false,"year":null}\n\nIf NO return ONLY: {"found":false}';
-    var resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:'image/jpeg',data:base64}},{type:'text',text:prompt}]}]})});
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-calls':'true'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:'image/jpeg',data:base64}},{type:'text',text:prompt}]}]})
+    });
     var data=await resp.json();
     if(data.error)throw new Error(data.error.message);
     var text=data.content.map(function(b){return b.text||'';}).join('');
@@ -270,12 +349,13 @@ async function captureAndIdentify(manual){
       document.getElementById('scanHint').textContent='No card detected - keep trying';setScanAnimating(true);
     }
   }catch(e){
-    document.getElementById('scanHint').textContent='Scan failed - try again';
-    if(manual)showStatus('Could not identify - try a clearer photo');
+    document.getElementById('scanHint').textContent='Scan failed: '+e.message;
+    if(manual)showStatus('Failed: '+e.message,4000);
     setScanAnimating(true);
   }
   isScanning=false;document.getElementById('manualScanBtn').disabled=false;
 }
+
 function showResultOverlay(c){
   document.getElementById('rImg').src=c.imageData||'';
   document.getElementById('rName').textContent=c.fullName||c.name||'Unknown';
@@ -294,13 +374,14 @@ document.getElementById('saveCardBtn').onclick=function(){
   var lo=pendingCard.estimatedPriceLow!=null?parseFloat(pendingCard.estimatedPriceLow):null;
   var hi=pendingCard.estimatedPriceHigh!=null?parseFloat(pendingCard.estimatedPriceHigh):null;
   var c={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),name:pendingCard.name,fullName:pendingCard.fullName||pendingCard.name,set:pendingCard.set,setCode:pendingCard.setCode,cardNumber:pendingCard.cardNumber,rarity:pendingCard.rarity,type:pendingCard.type,game:pendingCard.game,isHolo:pendingCard.isHolo,year:pendingCard.year,conditionNotes:pendingCard.conditionNotes,priceLow:lo,priceHigh:hi,priceDisplay:lo!=null&&hi!=null?'$'+lo.toFixed(2)+' - $'+hi.toFixed(2):'N/A',imageData:pendingCard.imageData,addedAt:Date.now()};
-  collection.push(c);saveCollection();renderCollection();hideResultOverlay();
+  collection.push(c);localStorage.setItem('tcgCollection',JSON.stringify(collection));renderCollection();hideResultOverlay();
   showStatus('"'+(c.fullName||c.name)+'" added!');
   document.getElementById('scanHint').textContent='Auto-scan active - align card within the guide';startAutoScan();
 };
 document.getElementById('resultOverlay').onclick=function(e){if(e.target===document.getElementById('resultOverlay')){hideResultOverlay();startAutoScan();}};
 function showScreen(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.toggle('hidden',s.id!==id);});}
-renderCollection();
+
+init();
 </script>
 </body>
 </html>
