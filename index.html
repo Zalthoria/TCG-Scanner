@@ -21,33 +21,39 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .screen.hidden{opacity:0;pointer-events:none;transform:translateY(20px);}
 
 /* API KEY SCREEN */
-#apiKeyScreen{background:var(--bg);align-items:center;justify-content:center;padding:32px 24px;}
+#apiKeyScreen{background:var(--bg);align-items:center;justify-content:center;padding:32px 24px;overflow-y:auto;}
 .key-card{background:var(--surface);border:0.5px solid var(--border2);border-radius:20px;padding:28px 24px;width:100%;max-width:400px;}
-.key-title{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--gold2);margin-bottom:6px;}
-.key-sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px;}
-.key-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;}
-.key-input{width:100%;background:var(--surface2);border:0.5px solid var(--border2);border-radius:10px;padding:12px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;outline:none;margin-bottom:14px;}
+.key-logo{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--gold2);margin-bottom:4px;}
+.key-sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:22px;}
+.key-section{margin-bottom:18px;}
+.key-section-title{font-size:12px;font-weight:500;color:var(--muted2);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.free-pill{background:rgba(82,201,126,0.15);color:var(--success);font-size:10px;padding:1px 7px;border-radius:10px;border:0.5px solid rgba(82,201,126,0.3);}
+.key-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:5px;}
+.key-input{width:100%;background:var(--surface2);border:0.5px solid var(--border2);border-radius:10px;padding:12px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;outline:none;margin-bottom:6px;}
 .key-input:focus{border-color:var(--gold);}
-.key-btn{width:100%;height:48px;border-radius:24px;background:var(--gold);color:#000;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.5px;}
-.key-note{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5;text-align:center;}
-.key-note a{color:var(--muted2);}
+.key-hint{font-size:11px;color:var(--muted);margin-bottom:0;line-height:1.4;}
+.key-hint a{color:var(--muted2);}
+.key-btn{width:100%;height:48px;border-radius:24px;background:var(--gold);color:#000;border:none;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.5px;margin-top:20px;}
+.key-note{font-size:11px;color:var(--muted);margin-top:10px;text-align:center;line-height:1.5;}
 
 /* COLLECTION */
 #collectionScreen{background:var(--bg);}
 .top-bar{display:flex;align-items:center;justify-content:space-between;padding:max(env(safe-area-inset-top),16px) 20px 16px;background:var(--bg);z-index:10;}
-.app-title{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--gold2);letter-spacing:0.5px;}
+.app-title{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--gold2);}
 .top-right{display:flex;align-items:center;gap:10px;}
 .badge-count{background:var(--gold);color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;font-family:'Rajdhani',sans-serif;}
-.key-change-btn{font-size:11px;color:var(--muted);background:none;border:none;cursor:pointer;padding:4px 8px;text-decoration:underline;}
+.settings-btn{font-size:11px;color:var(--muted);background:none;border:none;cursor:pointer;padding:4px 8px;text-decoration:underline;}
 .collection-scroll{flex:1;overflow-y:auto;padding:0 16px 120px;-webkit-overflow-scrolling:touch;}
 .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:12px;text-align:center;}
 .empty-title{font-family:'Rajdhani',sans-serif;font-size:22px;color:var(--muted2);}
 .empty-sub{font-size:13px;color:var(--muted);max-width:220px;line-height:1.5;}
+.collection-value{text-align:center;padding:12px 0 4px;font-size:13px;color:var(--muted);}
+.collection-value span{color:var(--gold2);font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:600;}
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-top:8px;}
 .card-item{background:var(--surface);border:0.5px solid var(--border2);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform 0.15s;}
 .card-item:active{transform:scale(0.96);}
 .card-thumb{width:100%;aspect-ratio:2.5/3.5;object-fit:cover;background:var(--surface2);}
-.card-thumb-placeholder{width:100%;aspect-ratio:2.5/3.5;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.card-thumb-placeholder{width:100%;aspect-ratio:2.5/3.5;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);}
 .card-info{padding:10px 10px 12px;}
 .card-item-name{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .card-item-set{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px;}
@@ -90,14 +96,16 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .result-meta{flex:1;min-width:0;}
 .result-name{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:4px;}
 .result-set{font-size:12px;color:var(--muted);margin-bottom:10px;}
-.badges{display:flex;flex-wrap:wrap;gap:5px;}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px;}
 .badge{font-size:10px;font-weight:500;padding:2px 8px;border-radius:5px;border:0.5px solid var(--border2);color:var(--muted2);background:var(--surface2);}
 .badge.rare{background:rgba(74,158,255,0.15);color:var(--info);border-color:rgba(74,158,255,0.3);}
 .badge.type{background:rgba(82,201,126,0.15);color:var(--success);border-color:rgba(82,201,126,0.3);}
 .badge.holo{background:rgba(212,168,67,0.15);color:var(--gold2);border-color:rgba(212,168,67,0.3);}
+.badge.live{background:rgba(82,201,126,0.15);color:var(--success);border-color:rgba(82,201,126,0.3);}
 .price-row{background:var(--surface2);border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.price-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;}
+.price-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:2px;}
 .price-val{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--gold2);}
+.price-source{font-size:10px;color:var(--muted);}
 .detail-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px;}
 .detail-table td{padding:5px 0;border-bottom:0.5px solid var(--border);}
 .detail-table tr:last-child td{border-bottom:none;}
@@ -114,7 +122,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .detail-sheet{background:var(--surface);border:0.5px solid var(--border2);border-radius:24px 24px 20px 20px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:20px;position:relative;}
 .detail-sheet-img{width:100%;max-height:240px;object-fit:contain;border-radius:12px;margin-bottom:16px;background:var(--surface2);}
 .detail-big-name{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--text);margin-bottom:4px;}
-.detail-price-big{font-family:'Rajdhani',sans-serif;font-size:32px;font-weight:700;color:var(--gold2);margin-bottom:16px;}
+.detail-price-big{font-family:'Rajdhani',sans-serif;font-size:32px;font-weight:700;color:var(--gold2);margin-bottom:4px;}
+.detail-price-src{font-size:11px;color:var(--muted);margin-bottom:14px;}
 .detail-section-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px;margin-top:14px;}
 .delete-btn{width:100%;margin-top:20px;height:46px;border-radius:23px;background:rgba(240,96,96,0.1);color:var(--danger);border:0.5px solid rgba(240,96,96,0.25);cursor:pointer;font-size:14px;}
 .close-modal{position:absolute;top:20px;right:20px;width:34px;height:34px;border-radius:50%;background:var(--surface2);border:none;color:var(--muted2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
@@ -132,12 +141,25 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 <!-- API KEY SCREEN -->
 <div class="screen" id="apiKeyScreen">
   <div class="key-card">
-    <p class="key-title">TCG Scanner</p>
-    <p class="key-sub">Enter your Anthropic API key to power card identification. It is saved locally on your device and never sent anywhere except the Anthropic API.</p>
-    <p class="key-label">Anthropic API Key</p>
-    <input class="key-input" id="keyInput" type="password" placeholder="sk-ant-..." autocomplete="off" autocorrect="off" spellcheck="false"/>
+    <p class="key-logo">TCG Scanner</p>
+    <p class="key-sub">Two free APIs power this app. Set them up once and you are good to go.</p>
+
+    <div class="key-section">
+      <p class="key-section-title">Gemini Vision <span class="free-pill">Free</span></p>
+      <p class="key-label">Google Gemini API Key</p>
+      <input class="key-input" id="geminiKeyInput" type="password" placeholder="AIza..." autocomplete="off" spellcheck="false"/>
+      <p class="key-hint">Get a free key at <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com</a> &mdash; no credit card needed.</p>
+    </div>
+
+    <div class="key-section">
+      <p class="key-section-title">Pokemon TCG Prices <span class="free-pill">Free</span></p>
+      <p class="key-label">Pokemon TCG API Key (optional)</p>
+      <input class="key-input" id="tcgKeyInput" type="password" placeholder="Leave blank for basic access" autocomplete="off" spellcheck="false"/>
+      <p class="key-hint">Free key at <a href="https://dev.pokemontcg.io" target="_blank">dev.pokemontcg.io</a> for higher rate limits. Not required.</p>
+    </div>
+
     <button class="key-btn" id="saveKeyBtn">Get Started</button>
-    <p class="key-note">Get a key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a><br>Your key is stored in localStorage only.</p>
+    <p class="key-note">Keys are stored locally on your device only.</p>
   </div>
 </div>
 
@@ -147,13 +169,16 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <span class="app-title">TCG Scanner</span>
     <div class="top-right">
       <span class="badge-count" id="cardCount">0 cards</span>
-      <button class="key-change-btn" id="changeKeyBtn">API Key</button>
+      <button class="settings-btn" id="changeKeyBtn">Keys</button>
     </div>
   </div>
   <div class="collection-scroll">
     <div class="empty-state" id="emptyState">
       <p class="empty-title">No cards yet</p>
       <p class="empty-sub">Tap the button below to start scanning your collection</p>
+    </div>
+    <div id="collectionStats" style="display:none">
+      <p class="collection-value">Total value: <span id="totalValue">$0.00</span></p>
     </div>
     <div class="card-grid" id="cardGrid" style="display:none"></div>
   </div>
@@ -196,7 +221,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
     <div class="price-row">
-      <div><p class="price-label">Est. Market Value</p><p class="price-val" id="rPrice"></p></div>
+      <div>
+        <p class="price-label">Market Value</p>
+        <p class="price-val" id="rPrice"></p>
+        <p class="price-source" id="rPriceSource"></p>
+      </div>
       <div style="text-align:right;font-size:11px;color:var(--muted)">Near Mint<br>USD</div>
     </div>
     <table class="detail-table" id="rTable"></table>
@@ -205,7 +234,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <button class="btn-save" id="saveCardBtn">+ Add to Collection</button>
       <button class="btn-dismiss" id="dismissResultBtn">Skip</button>
     </div>
-    <p class="disclaimer">Prices are AI estimates. Verify on TCGPlayer or Cardmarket.</p>
+    <p class="disclaimer">Prices from TCGPlayer via Pokemon TCG API.</p>
   </div>
 </div>
 
@@ -217,10 +246,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <img class="detail-sheet-img" id="dImg" src="" alt="Card"/>
     <p class="detail-big-name" id="dName"></p>
     <p class="detail-price-big" id="dPrice"></p>
+    <p class="detail-price-src" id="dPriceSrc"></p>
     <div class="badges" id="dBadges" style="margin-bottom:10px;"></div>
     <p class="detail-section-label">Details</p>
     <table class="detail-table" id="dTable"></table>
-    <p class="detail-section-label" id="dCondLabel" style="display:none">Condition</p>
+    <p class="detail-section-label" id="dCondLabel" style="display:none">Condition notes</p>
     <p id="dCond" style="font-size:13px;color:var(--muted);line-height:1.5;"></p>
     <p class="detail-section-label">Added</p>
     <p id="dDate" style="font-size:13px;color:var(--muted2);"></p>
@@ -231,36 +261,50 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 <script>
 var collection=JSON.parse(localStorage.getItem('tcgCollection')||'[]');
 var stream=null,autoScanTimer=null,isScanning=false,lastScanTime=0,pendingCard=null,currentDetailId=null;
-var AUTO_SCAN_INTERVAL=5000,pillTimer=null;
+var AUTO_SCAN_INTERVAL=6000,pillTimer=null;
 
-function getKey(){return localStorage.getItem('tcgApiKey')||'';}
-function saveKey(k){localStorage.setItem('tcgApiKey',k);}
+function getGeminiKey(){return localStorage.getItem('geminiKey')||'';}
+function getTCGKey(){return localStorage.getItem('tcgKey')||'';}
 
-// INIT
 function init(){
-  if(getKey()){showScreen('collectionScreen');renderCollection();}
+  if(getGeminiKey()){showScreen('collectionScreen');renderCollection();}
   else{showScreen('apiKeyScreen');}
 }
 
 document.getElementById('saveKeyBtn').onclick=function(){
-  var k=document.getElementById('keyInput').value.trim();
-  if(!k.startsWith('sk-')){showStatus('Key must start with sk-');return;}
-  saveKey(k);showScreen('collectionScreen');renderCollection();
+  var gk=document.getElementById('geminiKeyInput').value.trim();
+  var tk=document.getElementById('tcgKeyInput').value.trim();
+  if(!gk){showStatus('Gemini key is required');return;}
+  localStorage.setItem('geminiKey',gk);
+  if(tk)localStorage.setItem('tcgKey',tk);
+  showScreen('collectionScreen');renderCollection();
 };
-document.getElementById('keyInput').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('saveKeyBtn').click();});
 document.getElementById('changeKeyBtn').onclick=function(){
-  document.getElementById('keyInput').value=getKey();showScreen('apiKeyScreen');
+  document.getElementById('geminiKeyInput').value=getGeminiKey();
+  document.getElementById('tcgKeyInput').value=getTCGKey();
+  showScreen('apiKeyScreen');
 };
 
+var pillTimer=null;
 function showStatus(msg,dur){var p=document.getElementById('statusPill');p.textContent=msg;p.classList.add('visible');clearTimeout(pillTimer);pillTimer=setTimeout(function(){p.classList.remove('visible');},dur||2500);}
 
+function calcTotalValue(){
+  var total=0;
+  collection.forEach(function(c){if(c.priceMarket)total+=c.priceMarket;});
+  return total;
+}
+
 function renderCollection(){
-  var grid=document.getElementById('cardGrid'),empty=document.getElementById('emptyState'),count=document.getElementById('cardCount');
+  var grid=document.getElementById('cardGrid'),empty=document.getElementById('emptyState');
+  var stats=document.getElementById('collectionStats'),count=document.getElementById('cardCount');
   count.textContent=collection.length+' card'+(collection.length!==1?'s':'');
-  if(collection.length===0){empty.style.display='flex';grid.style.display='none';return;}
-  empty.style.display='none';grid.style.display='grid';
+  if(collection.length===0){empty.style.display='flex';grid.style.display='none';stats.style.display='none';return;}
+  empty.style.display='none';grid.style.display='grid';stats.style.display='block';
+  var total=calcTotalValue();
+  document.getElementById('totalValue').textContent=total>0?'$'+total.toFixed(2):'N/A';
   grid.innerHTML=collection.slice().reverse().map(function(c){
-    return '<div class="card-item" onclick="openDetail(\''+c.id+'\')">'+(c.imageData?'<img class="card-thumb" src="'+c.imageData+'" loading="lazy"/>':'<div class="card-thumb-placeholder">No Image</div>')+'<div class="card-info"><p class="card-item-name">'+(c.fullName||c.name)+'</p><p class="card-item-set">'+(c.set||'Unknown')+'</p><p class="card-item-price">'+(c.priceDisplay||'-')+'</p></div></div>';
+    var img=c.tcgImage||c.imageData;
+    return '<div class="card-item" onclick="openDetail(\''+c.id+'\')">'+(img?'<img class="card-thumb" src="'+img+'" loading="lazy"/>':'<div class="card-thumb-placeholder">No Image</div>')+'<div class="card-info"><p class="card-item-name">'+(c.fullName||c.name)+'</p><p class="card-item-set">'+(c.set||'Unknown')+'</p><p class="card-item-price">'+(c.priceDisplay||'-')+'</p></div></div>';
   }).join('');
 }
 
@@ -269,19 +313,21 @@ function buildBadges(c){
   if(c.rarity)h+='<span class="badge rare">'+c.rarity+'</span>';
   if(c.type)h+='<span class="badge type">'+c.type+'</span>';
   if(c.isHolo)h+='<span class="badge holo">Holo</span>';
-  if(c.game&&c.game!=='Pokemon TCG')h+='<span class="badge">'+c.game+'</span>';
+  if(c.livePrices)h+='<span class="badge live">Live Price</span>';
   return h;
 }
 function buildRows(c){
-  return[['Card no.',c.cardNumber],['Set',c.set],['Game',c.game],['Year',c.year]].filter(function(r){return r[1];}).map(function(r){return'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('');
+  return[['Card no.',c.cardNumber],['Set',c.set],['HP',c.hp],['Artist',c.artist],['Year',c.year]].filter(function(r){return r[1];}).map(function(r){return'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('');
 }
 
 function openDetail(id){
   var c=collection.find(function(x){return x.id===id;});if(!c)return;
   currentDetailId=id;
-  var di=document.getElementById('dImg');di.src=c.imageData||'';di.style.display=c.imageData?'block':'none';
+  var img=c.tcgImage||c.imageData;
+  var di=document.getElementById('dImg');di.src=img||'';di.style.display=img?'block':'none';
   document.getElementById('dName').textContent=c.fullName||c.name;
   document.getElementById('dPrice').textContent=c.priceDisplay||'Price unknown';
+  document.getElementById('dPriceSrc').textContent=c.livePrices?'Live price via TCGPlayer':'Estimated price';
   document.getElementById('dBadges').innerHTML=buildBadges(c);
   document.getElementById('dTable').innerHTML=buildRows(c);
   if(c.conditionNotes){document.getElementById('dCondLabel').style.display='block';document.getElementById('dCond').textContent=c.conditionNotes;}
@@ -298,9 +344,63 @@ document.getElementById('deleteCardBtn').onclick=function(){
 };
 document.getElementById('detailModal').onclick=function(e){if(e.target===document.getElementById('detailModal'))document.getElementById('detailModal').classList.remove('visible');};
 
+// ===== GEMINI VISION =====
+async function identifyWithGemini(base64){
+  var prompt='You are a Pokemon TCG expert. Look at this card image carefully.\n\nIf you can see a Pokemon TCG card, return ONLY this JSON (no markdown, no backticks):\n{"found":true,"name":"Pokemon name only e.g. Charizard","fullName":"Full card name e.g. Charizard VSTAR","set":"Set name e.g. Brilliant Stars","setCode":"Set code e.g. brs","cardNumber":"Number e.g. 018","rarity":"Rarity","type":"Fire","isHolo":false,"conditionNotes":"Brief condition from image","year":"2022"}\n\nIf no readable Pokemon card visible, return ONLY: {"found":false}';
+  var resp=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+getGeminiKey(),{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({contents:[{parts:[{inline_data:{mime_type:'image/jpeg',data:base64}},{text:prompt}]}]})
+  });
+  var data=await resp.json();
+  if(data.error)throw new Error(data.error.message);
+  var text=data.candidates[0].content.parts[0].text;
+  return JSON.parse(text.replace(/```json|```/g,'').trim());
+}
+
+// ===== POKEMON TCG API PRICE LOOKUP =====
+async function lookupTCGPrice(name,setCode,cardNumber){
+  try{
+    var query='name:"'+encodeURIComponent(name)+'"';
+    if(setCode&&cardNumber)query='set.id:'+setCode+' number:'+cardNumber;
+    else if(setCode)query='name:"'+encodeURIComponent(name)+'" set.id:'+setCode;
+    var headers={'Content-Type':'application/json'};
+    var tk=getTCGKey();if(tk)headers['X-Api-Key']=tk;
+    var resp=await fetch('https://api.pokemontcg.io/v2/cards?q='+query+'&pageSize=1',{headers:headers});
+    var data=await resp.json();
+    if(!data.data||data.data.length===0){
+      // fallback: search by name only
+      resp=await fetch('https://api.pokemontcg.io/v2/cards?q=name:"'+encodeURIComponent(name)+'"&orderBy=-set.releaseDate&pageSize=1',{headers:headers});
+      data=await resp.json();
+    }
+    if(!data.data||data.data.length===0)return null;
+    var card=data.data[0];
+    var prices=card.tcgplayer&&card.tcgplayer.prices;
+    var market=null;
+    if(prices){
+      var tier=prices.holofoil||prices.reverseHolofoil||prices.normal||prices['1stEditionHolofoil']||prices['unlimitedHolofoil'];
+      if(tier)market=tier.market||tier.mid||null;
+    }
+    return{
+      tcgId:card.id,
+      tcgImage:card.images&&card.images.large,
+      set:card.set&&card.set.name,
+      setCode:card.set&&card.set.id,
+      cardNumber:card.number,
+      rarity:card.rarity,
+      hp:card.hp,
+      artist:card.artist,
+      year:card.set&&card.set.releaseDate&&card.set.releaseDate.substring(0,4),
+      priceMarket:market,
+      priceDisplay:market?'$'+market.toFixed(2):'N/A',
+      livePrices:market!=null
+    };
+  }catch(e){return null;}
+}
+
+// ===== CAMERA =====
 document.getElementById('openCameraBtn').onclick=openCamera;
 document.getElementById('closeCameraBtn').onclick=closeCamera;
-
 async function openCamera(){
   showScreen('cameraScreen');
   try{
@@ -325,31 +425,50 @@ async function captureAndIdentify(manual){
   if(isScanning)return;
   var video=document.getElementById('videoEl');if(!video.videoWidth)return;
   isScanning=true;lastScanTime=Date.now();setScanAnimating(false);
-  document.getElementById('scanHint').textContent='Scanning...';
+  document.getElementById('scanHint').textContent='Identifying card...';
   document.getElementById('manualScanBtn').disabled=true;
   var canvas=document.getElementById('snapCanvas');
   canvas.width=video.videoWidth;canvas.height=video.videoHeight;
   canvas.getContext('2d').drawImage(video,0,0);
-  var imageData=canvas.toDataURL('image/jpeg',0.85),base64=imageData.split(',')[1];
+  var imageData=canvas.toDataURL('image/jpeg',0.85);
+  var base64=imageData.split(',')[1];
   try{
-    var prompt='You are a TCG card expert. Is there a clearly visible TCG card in this image?\n\nIf YES return ONLY JSON (no markdown):\n{"found":true,"name":"Card name","fullName":"Full name","set":"Set name","setCode":null,"cardNumber":null,"rarity":"Rarity","type":"Energy type","game":"Game name","estimatedPriceLow":0,"estimatedPriceHigh":0,"conditionNotes":"Condition","isHolo":false,"year":null}\n\nIf NO return ONLY: {"found":false}';
-    var resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-calls':'true'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:'image/jpeg',data:base64}},{type:'text',text:prompt}]}]})
-    });
-    var data=await resp.json();
-    if(data.error)throw new Error(data.error.message);
-    var text=data.content.map(function(b){return b.text||'';}).join('');
-    var card=JSON.parse(text.replace(/```json|```/g,'').trim());
-    if(card.found){
-      pendingCard=Object.assign({},card,{imageData:imageData,capturedAt:Date.now()});
-      showResultOverlay(pendingCard);stopAutoScan();
-    }else{
-      document.getElementById('scanHint').textContent='No card detected - keep trying';setScanAnimating(true);
+    // Step 1: Gemini identifies the card
+    var geminiResult=await identifyWithGemini(base64);
+    if(!geminiResult.found){
+      document.getElementById('scanHint').textContent='No card detected - keep trying';
+      setScanAnimating(true);isScanning=false;document.getElementById('manualScanBtn').disabled=false;return;
     }
+    document.getElementById('scanHint').textContent='Found '+geminiResult.fullName+' - looking up price...';
+
+    // Step 2: TCG API gets real price + official image
+    var tcgData=await lookupTCGPrice(geminiResult.name,geminiResult.setCode,geminiResult.cardNumber);
+
+    // Merge results - TCG API wins on overlapping fields
+    pendingCard={
+      name:geminiResult.name,
+      fullName:geminiResult.fullName||geminiResult.name,
+      set:tcgData&&tcgData.set||geminiResult.set,
+      setCode:tcgData&&tcgData.setCode||geminiResult.setCode,
+      cardNumber:tcgData&&tcgData.cardNumber||geminiResult.cardNumber,
+      rarity:tcgData&&tcgData.rarity||geminiResult.rarity,
+      type:geminiResult.type,
+      isHolo:geminiResult.isHolo,
+      hp:tcgData&&tcgData.hp,
+      artist:tcgData&&tcgData.artist,
+      year:tcgData&&tcgData.year||geminiResult.year,
+      conditionNotes:geminiResult.conditionNotes,
+      priceMarket:tcgData&&tcgData.priceMarket,
+      priceDisplay:tcgData&&tcgData.priceDisplay||'N/A',
+      livePrices:tcgData&&tcgData.livePrices||false,
+      tcgImage:tcgData&&tcgData.tcgImage,
+      imageData:imageData,
+      capturedAt:Date.now()
+    };
+    showResultOverlay(pendingCard);
+    stopAutoScan();
   }catch(e){
-    document.getElementById('scanHint').textContent='Scan failed: '+e.message;
+    document.getElementById('scanHint').textContent='Scan failed - try again';
     if(manual)showStatus('Failed: '+e.message,4000);
     setScanAnimating(true);
   }
@@ -357,11 +476,13 @@ async function captureAndIdentify(manual){
 }
 
 function showResultOverlay(c){
-  document.getElementById('rImg').src=c.imageData||'';
+  var img=c.tcgImage||c.imageData;
+  document.getElementById('rImg').src=img||'';
   document.getElementById('rName').textContent=c.fullName||c.name||'Unknown';
-  document.getElementById('rSet').textContent=[c.set,c.setCode?'('+c.setCode+')':'',c.year?'- '+c.year:''].filter(Boolean).join(' ')||'Unknown set';
+  document.getElementById('rSet').textContent=[c.set,c.cardNumber?'#'+c.cardNumber:''].filter(Boolean).join(' - ')||'Unknown set';
   document.getElementById('rBadges').innerHTML=buildBadges(c);
-  document.getElementById('rPrice').textContent=(c.estimatedPriceLow!=null&&c.estimatedPriceHigh!=null)?'$'+parseFloat(c.estimatedPriceLow).toFixed(2)+' - $'+parseFloat(c.estimatedPriceHigh).toFixed(2):'N/A';
+  document.getElementById('rPrice').textContent=c.priceDisplay||'N/A';
+  document.getElementById('rPriceSource').textContent=c.livePrices?'Live via TCGPlayer':'Price not found in TCG API';
   document.getElementById('rTable').innerHTML=buildRows(c);
   var ce=document.getElementById('rCondition');
   if(c.conditionNotes){ce.textContent=c.conditionNotes;ce.style.display='block';}else{ce.style.display='none';}
@@ -371,16 +492,14 @@ function hideResultOverlay(){document.getElementById('resultOverlay').classList.
 document.getElementById('dismissResultBtn').onclick=function(){hideResultOverlay();document.getElementById('scanHint').textContent='Auto-scan active - align card within the guide';startAutoScan();};
 document.getElementById('saveCardBtn').onclick=function(){
   if(!pendingCard)return;
-  var lo=pendingCard.estimatedPriceLow!=null?parseFloat(pendingCard.estimatedPriceLow):null;
-  var hi=pendingCard.estimatedPriceHigh!=null?parseFloat(pendingCard.estimatedPriceHigh):null;
-  var c={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),name:pendingCard.name,fullName:pendingCard.fullName||pendingCard.name,set:pendingCard.set,setCode:pendingCard.setCode,cardNumber:pendingCard.cardNumber,rarity:pendingCard.rarity,type:pendingCard.type,game:pendingCard.game,isHolo:pendingCard.isHolo,year:pendingCard.year,conditionNotes:pendingCard.conditionNotes,priceLow:lo,priceHigh:hi,priceDisplay:lo!=null&&hi!=null?'$'+lo.toFixed(2)+' - $'+hi.toFixed(2):'N/A',imageData:pendingCard.imageData,addedAt:Date.now()};
-  collection.push(c);localStorage.setItem('tcgCollection',JSON.stringify(collection));renderCollection();hideResultOverlay();
+  var c=Object.assign({},pendingCard,{id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),addedAt:Date.now()});
+  collection.push(c);localStorage.setItem('tcgCollection',JSON.stringify(collection));
+  renderCollection();hideResultOverlay();
   showStatus('"'+(c.fullName||c.name)+'" added!');
   document.getElementById('scanHint').textContent='Auto-scan active - align card within the guide';startAutoScan();
 };
 document.getElementById('resultOverlay').onclick=function(e){if(e.target===document.getElementById('resultOverlay')){hideResultOverlay();startAutoScan();}};
 function showScreen(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.toggle('hidden',s.id!==id);});}
-
 init();
 </script>
 </body>
